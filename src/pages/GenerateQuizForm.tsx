@@ -1,5 +1,7 @@
+import FileDropZone from '../components/FileDropZone';
+
 const Page = () => {
-  return <h1>Genrate Quiz Form</h1>;
+  return <FileDropZone />;
 };
 
 export default Page;

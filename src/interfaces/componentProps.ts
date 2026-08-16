@@ -9,3 +9,9 @@ export interface QuizCardProps {
   choices: QuizChoice[];
   answers: String[] | String;
 }
+
+export interface FileDropZoneProps {
+  accept?: string;
+  maxSize?: number;
+  onFileSelect?: (file: File | null) => void;
+}

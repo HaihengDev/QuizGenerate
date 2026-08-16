@@ -1,5 +1,7 @@
+import QuizCardLayout from '../components/QuizCardLayout';
+
 const Page = () => {
-  return <h1>Quiz Form</h1>;
+  return <QuizCardLayout />;
 };
 
 export default Page;

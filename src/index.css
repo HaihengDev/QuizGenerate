@@ -1,0 +1,28 @@
+:root {
+  --font-poppins: 'Poppins';
+
+  --text-sm: 0.75rem;
+  --text-md: 1rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --bg-primary: #f9f9fb;
+  --bg-secondary: #fff;
+
+  --color-primary: dodgerblue;
+  --color-hover: #145597;
+  --color-secondary: orange;
+
+  --text-primary: #000;
+  --text-success: #22bb33;
+  --text-danger: #dc3545;
+
+  --shadow-light: 1px 1px 2px #000;
+  --shadow-medium: 2px 2px 6px #000;
+  --shadow-strong: 3px 3px 9px #000;
+}

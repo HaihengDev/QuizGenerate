@@ -1,7 +1,15 @@
+/* ================================
+   Quiz File Container
+   ================================ */
+
 .quiz-file-container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   padding: 1.25rem;
   margin: 0;
@@ -13,6 +21,7 @@
   box-shadow: var(--shadow-light);
 
   cursor: pointer;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -43,6 +52,8 @@
   color: #666;
   font-size: var(--text-sm);
   font-weight: var(--font-regular);
+
+  line-height: 1.5;
 }
 
 .quiz-file-container p:last-child {
@@ -50,10 +61,141 @@
   font-weight: var(--font-medium);
 }
 
+/* ================================
+   Quiz File Card List
+   ================================ */
+
 #quiz-file-card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
 
   width: 100%;
+  min-width: 0;
+
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+
+  gap: 1rem;
+}
+
+/* ================================
+   Large Desktop / PC
+   1440px+
+   ================================ */
+
+@media (min-width: 1440px) {
+  #quiz-file-card-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .quiz-file-container {
+    padding: 1.5rem;
+  }
+}
+
+/* ================================
+   Desktop / Laptop
+   1024px - 1439px
+   ================================ */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  #quiz-file-card-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .quiz-file-container {
+    padding: 1.25rem;
+  }
+}
+
+/* ================================
+   Tablet / iPad Landscape
+   768px - 1023px
+   ================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #quiz-file-card-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .quiz-file-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .quiz-file-container h3 {
+    font-size: var(--text-md);
+  }
+
+  .quiz-file-container p {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ================================
+   Mobile
+   480px - 767px
+   ================================ */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  #quiz-file-card-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .quiz-file-container {
+    padding: 0.875rem;
+    border-radius: 10px;
+  }
+
+  .quiz-file-container h3 {
+    font-size: 0.95rem;
+  }
+
+  .quiz-file-container p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ================================
+   Small Mobile
+   Below 480px
+   ================================ */
+
+@media (max-width: 479px) {
+  #quiz-file-card-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .quiz-file-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .quiz-file-container h3 {
+    font-size: 0.95rem;
+  }
+
+  .quiz-file-container p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ================================
+   Touch Devices
+   ================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  .quiz-file-container:hover {
+    transform: none;
+    border-color: #e5e7eb;
+    box-shadow: var(--shadow-light);
+  }
+
+  .quiz-file-container:active {
+    transform: scale(0.98);
+    border-color: var(--color-primary);
+  }
 }

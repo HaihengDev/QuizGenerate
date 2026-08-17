@@ -38,4 +38,9 @@ body {
   height: 100vh;
   font-family: 'Poppins';
   font-size: var(--text-md);
+  background-color: var(--bg-primary);
+}
+
+main {
+  padding: 1rem 1.5rem;
 }

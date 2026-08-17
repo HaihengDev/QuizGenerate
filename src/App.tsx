@@ -1,7 +1,16 @@
+import NavBar from './components/NavBar';
 import AppRouter from './components/AppRouter';
 
 const App = () => {
-  return <AppRouter />;
+  return (
+    <>
+      <NavBar />
+
+      <main>
+        <AppRouter />
+      </main>
+    </>
+  );
 };
 
 export default App;

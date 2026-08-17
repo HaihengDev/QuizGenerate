@@ -71,6 +71,7 @@ body {
   height: 100vh;
   font-family: 'Poppins';
   font-size: var(--text-md);
+  color: var(--text-primary);
   background-color: var(--bg-primary);
 }
 

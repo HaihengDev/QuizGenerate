@@ -22,3 +22,18 @@ export interface QuizFileCardProps {
   createdAt: String;
   questionLength: number;
 }
+
+export interface QuizAnswer {
+  id: number;
+  text: string;
+  isCorrect: boolean;
+}
+
+export interface QuizQuestion {
+  question: string;
+  answers: QuizAnswer[];
+}
+
+export interface CreateQuizQuestionProps {
+  onSubmit?: (question: QuizQuestion) => void;
+}

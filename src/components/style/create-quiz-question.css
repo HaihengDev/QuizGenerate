@@ -1,0 +1,647 @@
+.create-quiz-question {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 0 auto;
+  padding: 2rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+
+  box-shadow: var(--shadow-light);
+
+  font-family: var(--font-poppins), sans-serif;
+}
+
+/* ========================================
+   Header
+======================================== */
+
+.question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.question-label {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+
+  color: var(--color-primary);
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.question-header h2 {
+  margin: 0;
+
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+
+  color: var(--text-primary);
+}
+
+/* ========================================
+   Question
+======================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+
+  color: var(--text-primary);
+}
+
+.form-group textarea {
+  width: 100%;
+  min-height: 120px;
+
+  padding: 1rem;
+
+  resize: vertical;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: var(--text-md);
+  line-height: 1.6;
+
+  color: var(--text-primary);
+  background: var(--bg-primary);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.form-group textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.form-group textarea:hover {
+  border-color: var(--color-primary);
+}
+
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+/* ========================================
+   Answers
+======================================== */
+
+.answers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.answers-header h3 {
+  margin: 0 0 0.25rem;
+
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+
+  color: var(--text-primary);
+}
+
+.answers-header p {
+  margin: 0;
+
+  font-size: var(--text-sm);
+  line-height: 1.5;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   Add Answer
+======================================== */
+
+.add-answer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  min-height: 40px;
+
+  padding: 0.65rem 1rem;
+
+  border: 1px solid var(--color-primary);
+  border-radius: 0.65rem;
+
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.add-answer-btn:hover {
+  color: var(--bg-secondary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+
+  transform: translateY(-1px);
+
+  box-shadow: var(--shadow-light);
+}
+
+.add-answer-btn:active {
+  transform: translateY(0);
+}
+
+.add-answer-btn:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+/* ========================================
+   Empty State
+======================================== */
+
+.answers-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 180px;
+
+  padding: 2rem 1.5rem;
+
+  border: 1px dashed var(--border-color);
+  border-radius: 0.75rem;
+
+  text-align: center;
+
+  background: var(--bg-primary);
+}
+
+.answers-empty-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 0.75rem;
+
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+
+  border-radius: 50%;
+
+  font-size: 1.5rem;
+  font-weight: var(--font-semibold);
+
+  color: var(--color-primary);
+
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.answers-empty p {
+  margin: 0 0 0.35rem;
+
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+
+  color: var(--text-primary);
+}
+
+.answers-empty span:last-child {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   Answer List
+======================================== */
+
+.answers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ========================================
+   Answer Item
+======================================== */
+
+.answer-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  min-width: 0;
+
+  padding: 0.65rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+
+  background: var(--bg-primary);
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.answer-item:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--color-primary) 45%,
+    var(--border-color)
+  );
+
+  box-shadow: var(--shadow-light);
+}
+
+/* ========================================
+   Correct Answer
+======================================== */
+
+.answer-item.answer-correct {
+  border-color: var(--text-success);
+
+  background: color-mix(in srgb, var(--text-success) 7%, var(--bg-primary));
+
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-success) 10%, transparent);
+}
+
+/* ========================================
+   Answer Letter / Answer Key
+======================================== */
+
+.answer-number {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.answer-number:hover {
+  border-color: var(--text-success);
+
+  color: var(--text-success);
+
+  background: color-mix(in srgb, var(--text-success) 10%, transparent);
+
+  transform: translateY(-1px);
+}
+
+.answer-number:active {
+  transform: translateY(0);
+}
+
+/* Selected Answer Key */
+
+.answer-number.answer-key {
+  border-color: var(--text-success);
+
+  color: var(--bg-secondary);
+
+  background: var(--text-success);
+
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text-success) 15%, transparent);
+}
+
+.answer-number.answer-key:hover {
+  color: var(--bg-secondary);
+  background: var(--text-success);
+}
+
+/* Keyboard Focus */
+
+.answer-number:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text-success) 20%, transparent);
+}
+
+/* ========================================
+   Answer Input
+======================================== */
+
+.answer-item input {
+  min-width: 0;
+  flex: 1;
+
+  padding: 0.65rem 0.5rem;
+
+  border: none;
+  outline: none;
+
+  font-family: inherit;
+  font-size: var(--text-md);
+
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.answer-item input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ========================================
+   Remove Answer
+======================================== */
+
+.remove-answer-btn {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  font-family: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+
+  color: var(--text-secondary);
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.remove-answer-btn:hover {
+  color: var(--text-danger);
+
+  background: color-mix(in srgb, var(--text-danger) 10%, transparent);
+
+  transform: scale(1.05);
+}
+
+.remove-answer-btn:active {
+  transform: scale(0.95);
+}
+
+.remove-answer-btn:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text-danger) 15%, transparent);
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+.question-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid var(--border-color);
+}
+
+.correct-count {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   Create Question
+======================================== */
+
+.create-question-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0.75rem 1.25rem;
+
+  border: none;
+  border-radius: 0.65rem;
+
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+
+  color: #fff;
+  background: var(--color-primary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.create-question-btn:hover {
+  background: var(--color-hover);
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-medium);
+}
+
+.create-question-btn:active {
+  transform: translateY(0);
+
+  box-shadow: var(--shadow-light);
+}
+
+.create-question-btn:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent),
+    var(--shadow-light);
+}
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 700px) {
+  .create-quiz-question {
+    padding: 1.5rem;
+  }
+
+  .answers-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .add-answer-btn {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 500px) {
+  .create-quiz-question {
+    padding: 1rem;
+
+    border-radius: 0.75rem;
+  }
+
+  .question-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .question-header h2 {
+    font-size: var(--text-lg);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+
+    padding: 0.85rem;
+  }
+
+  .answers-header h3 {
+    font-size: var(--text-md);
+  }
+
+  .answers-empty {
+    min-height: 150px;
+
+    padding: 1.5rem 1rem;
+  }
+
+  .answer-item {
+    gap: 0.5rem;
+
+    padding: 0.5rem;
+  }
+
+  .answer-number {
+    width: 36px;
+    height: 36px;
+  }
+
+  .answer-item input {
+    padding: 0.5rem 0.25rem;
+
+    font-size: var(--text-sm);
+  }
+
+  .remove-answer-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .question-footer {
+    align-items: stretch;
+    flex-direction: column;
+
+    margin-top: 1.5rem;
+  }
+
+  .correct-count {
+    text-align: center;
+  }
+
+  .create-question-btn {
+    width: 100%;
+  }
+}

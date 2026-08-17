@@ -1,5 +1,7 @@
+import CreateQuizQuestion from '../components/CreateQuizQuestion';
+
 const Page = () => {
-  return <h1>Create Quiz Manually Page</h1>;
+  return <CreateQuizQuestion />;
 };
 
 export default Page;

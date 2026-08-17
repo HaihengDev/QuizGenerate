@@ -112,3 +112,122 @@
   background: #f3f4f6;
   color: var(--color-primary);
 }
+
+/* =========================
+   Theme Toggle
+========================= */
+
+.theme-toggle {
+  --toggle-padding: 3px;
+  --toggle-height: 38px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 150px;
+  height: var(--toggle-height);
+
+  padding: var(--toggle-padding);
+
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+
+  box-shadow: var(--shadow-light);
+
+  isolation: isolate;
+}
+
+/* Sliding background */
+
+.theme-slider {
+  position: absolute;
+
+  top: var(--toggle-padding);
+  left: var(--toggle-padding);
+
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+
+  background: var(--color-primary);
+  border-radius: 999px;
+
+  z-index: -1;
+
+  transform: translateX(0);
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.25s ease;
+}
+
+/* Move slider to Dark */
+
+.theme-toggle.dark .theme-slider {
+  transform: translateX(100%);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.theme-option {
+  position: relative;
+
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  z-index: 1;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Active button text */
+
+.theme-toggle.light .theme-option:first-of-type,
+.theme-toggle.dark .theme-option:last-of-type {
+  color: #fff;
+}
+
+/* Small scale animation */
+
+.theme-option:active {
+  transform: scale(0.92);
+}
+
+/* Icons */
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.theme-option:hover .theme-icon {
+  transform: rotate(15deg) scale(1.1);
+}

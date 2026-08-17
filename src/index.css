@@ -27,6 +27,27 @@
   --shadow-strong: 0 8px 20px rgb(0 0 0 / 0.15);
 }
 
+[data-theme='dark'] {
+  /* Background */
+  --bg-primary: #111318;
+  --bg-secondary: #1b1e24;
+
+  /* Colors */
+  --color-primary: #4da3ff;
+  --color-hover: #78baff;
+  --color-secondary: #ffb733;
+
+  /* Text */
+  --text-primary: #f5f7fa;
+  --text-success: #3ddc5a;
+  --text-danger: #ff5c6c;
+
+  /* Shadows */
+  --shadow-light: 0 1px 3px rgb(0 0 0 / 0.3);
+  --shadow-medium: 0 4px 10px rgb(0 0 0 / 0.4);
+  --shadow-strong: 0 8px 20px rgb(0 0 0 / 0.5);
+}
+
 *,
 *::before,
 *::after {

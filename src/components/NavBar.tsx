@@ -14,14 +14,17 @@ export default function NavBar() {
   }, [location.pathname]);
 
   return (
-    <nav className='navbar'>
-      <img className='navbar-logo' src={Logo} alt='Logo' />
+    <nav className="navbar">
+      <NavLink to="/" className="navbar-brand">
+        <img className="navbar-logo" src={Logo} alt="Quizify Logo" />
+        <span className="navbar-title">Quizify</span>
+      </NavLink>
 
-      <div className='navbar-menu'>
-        <div className='dropdown'>
+      <div className="navbar-menu">
+        <div className="dropdown">
           <button
-            type='button'
-            className='dropdown-button'
+            type="button"
+            className="dropdown-button"
             onClick={() => setIsOpen((prev) => !prev)}
           >
             Quizzes
@@ -29,16 +32,16 @@ export default function NavBar() {
           </button>
 
           {isOpen && (
-            <div className='dropdown-menu'>
-              <NavLink to='/' className='dropdown-link'>
+            <div className="dropdown-menu">
+              <NavLink to="/" className="dropdown-link">
                 All Quizzes
               </NavLink>
 
-              <NavLink to='/generate-quiz-form' className='dropdown-link'>
+              <NavLink to="/generate-quiz-form" className="dropdown-link">
                 Upload Pdf to Quiz
               </NavLink>
 
-              <NavLink to='/create-quiz' className='dropdown-link'>
+              <NavLink to="/create-quiz" className="dropdown-link">
                 Create Quiz Manually
               </NavLink>
             </div>

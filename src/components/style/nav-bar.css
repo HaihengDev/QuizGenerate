@@ -10,9 +10,29 @@
   box-shadow: var(--shadow-light);
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  text-decoration: none;
+  color: var(--text-primary);
+
+  flex-shrink: 0;
+}
+
 .navbar-logo {
-  width: 50px;
-  height: auto;
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+.navbar-title {
+  font-size: 1.35rem;
+  font-weight: var(--font-bold);
+
+  letter-spacing: -0.02em;
 }
 
 .navbar-menu {

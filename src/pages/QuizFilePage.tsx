@@ -1,5 +1,7 @@
+import QuizFileCardLayout from '../components/QuizFileCardLayout';
+
 const Page = () => {
-  return <h1>Quiz File Page</h1>;
+  return <QuizFileCardLayout />;
 };
 
 export default Page;

@@ -1,14 +1,28 @@
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import questions from '../data/quiz.json';
+import quizFiles from '../data/quizFile.json';
 import QuizCard from './QuizCard';
 import './style/quiz-card.css';
 
 export default function QuizCardLayout() {
+  const { id } = useParams();
+
+  const questions = quizFiles.find(
+    (quizFile) => quizFile.id === Number(id),
+  )?.quiz;
+
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [userAnswers, setUserAnswers] = useState<Record<number, string[]>>({});
-
   const [required, setRequired] = useState(false);
+
+  // Handle invalid quiz ID
+  if (!questions || questions.length === 0) {
+    return (
+      <section id="quiz-card-layout">
+        <p>Quiz not found.</p>
+      </section>
+    );
+  }
 
   const currentQuestion = questions[currentIndex];
 
@@ -20,14 +34,12 @@ export default function QuizCardLayout() {
       [currentQuestion.id]: answers,
     }));
 
-    // Remove validation error once user selects an answer
     if (answers.length > 0) {
       setRequired(false);
     }
   };
 
   const handleNext = () => {
-    // Validate answer
     if (selectedAnswers.length === 0) {
       setRequired(true);
       return;
@@ -37,6 +49,9 @@ export default function QuizCardLayout() {
 
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((previous) => previous + 1);
+    } else {
+      // Submit quiz
+      console.log('User answers:', userAnswers);
     }
   };
 

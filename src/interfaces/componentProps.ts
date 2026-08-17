@@ -15,3 +15,10 @@ export interface FileDropZoneProps {
   maxSize?: number;
   onFileSelect?: (file: File | null) => void;
 }
+
+export interface QuizFileCardProps {
+  id: number;
+  title: string;
+  createdAt: String;
+  questionLength: number;
+}

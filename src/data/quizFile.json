@@ -1,0 +1,271 @@
+[
+  {
+    "id": 1,
+    "title": "Quiz 1",
+    "quiz": [
+      {
+        "id": 1,
+        "question": "What is the full form of HTML?",
+        "choices": [
+          { "id": "A", "text": "Hypertext Markup Language" },
+          { "id": "B", "text": "Hypertext Makeup Language" },
+          { "id": "C", "text": "Hypotext Markup Language" },
+          { "id": "D", "text": "Hypotext Makeup Language" }
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 2,
+        "question": "What is the full form of CSS?",
+        "choices": [
+          { "id": "A", "text": "Computer Style Sheets" },
+          { "id": "B", "text": "Cascading Style Sheets" },
+          { "id": "C", "text": "Creative Style System" },
+          { "id": "D", "text": "Colorful Style Sheets" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 3,
+        "question": "Which language is used to add interactivity to a web page?",
+        "choices": [
+          { "id": "A", "text": "HTML" },
+          { "id": "B", "text": "CSS" },
+          { "id": "C", "text": "JavaScript" },
+          { "id": "D", "text": "SQL" }
+        ],
+        "answer": "C"
+      },
+      {
+        "id": 4,
+        "question": "Which HTML tag is used to create a hyperlink?",
+        "choices": [
+          { "id": "A", "text": "<link>" },
+          { "id": "B", "text": "<a>" },
+          { "id": "C", "text": "<href>" },
+          { "id": "D", "text": "<url>" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 5,
+        "question": "Which HTML tag is used to display an image?",
+        "choices": [
+          { "id": "A", "text": "<image>" },
+          { "id": "B", "text": "<picture>" },
+          { "id": "C", "text": "<img>" },
+          { "id": "D", "text": "<src>" }
+        ],
+        "answer": "C"
+      }
+    ],
+    "createdAt": "2026-02-07",
+    "questionLength": 5
+  },
+  {
+    "id": 2,
+    "title": "Quiz 2",
+    "quiz": [
+      {
+        "id": 6,
+        "question": "Which property is used to change the text color in CSS?",
+        "choices": [
+          { "id": "A", "text": "font-color" },
+          { "id": "B", "text": "text-color" },
+          { "id": "C", "text": "text-style" },
+          { "id": "D", "text": "text-color" }
+        ],
+        "answer": "D"
+      },
+      {
+        "id": 7,
+        "question": "Which symbol is used for comments in JavaScript?",
+        "choices": [
+          { "id": "A", "text": "//" },
+          { "id": "B", "text": "<!-- -->" },
+          { "id": "C", "text": "#" },
+          { "id": "D", "text": "**" }
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 8,
+        "question": "Which keyword is used to declare a constant in JavaScript?",
+        "choices": [
+          { "id": "A", "text": "var" },
+          { "id": "B", "text": "let" },
+          { "id": "C", "text": "const" },
+          { "id": "D", "text": "constant" }
+        ],
+        "answer": "C"
+      },
+      {
+        "id": 9,
+        "question": "Which method is used to add an element to the end of a JavaScript array?",
+        "choices": [
+          { "id": "A", "text": "push()" },
+          { "id": "B", "text": "add()" },
+          { "id": "C", "text": "append()" },
+          { "id": "D", "text": "insert()" }
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 10,
+        "question": "Which of the following are JavaScript data types?",
+        "choices": [
+          { "id": "A", "text": "String" },
+          { "id": "B", "text": "Number" },
+          { "id": "C", "text": "Boolean" },
+          { "id": "D", "text": "Photoshop" },
+          { "id": "E", "text": "Object" }
+        ],
+        "answer": ["A", "B", "C", "E"]
+      },
+      {
+        "id": 11,
+        "question": "Which command is used to initialize a Git repository?",
+        "choices": [
+          { "id": "A", "text": "git start" },
+          { "id": "B", "text": "git init" },
+          { "id": "C", "text": "git create" },
+          { "id": "D", "text": "git new" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 12,
+        "question": "Which HTTP method is commonly used to retrieve data from a server?",
+        "choices": [
+          { "id": "A", "text": "POST" },
+          { "id": "B", "text": "PUT" },
+          { "id": "C", "text": "GET" },
+          { "id": "D", "text": "DELETE" }
+        ],
+        "answer": "C"
+      }
+    ],
+    "createdAt": "2026-02-07",
+    "questionLength": 7
+  },
+  {
+    "id": 3,
+    "title": "Quiz 3",
+    "quiz": [
+      {
+        "id": 13,
+        "question": "Which HTTP method is commonly used to create new data?",
+        "choices": [
+          { "id": "A", "text": "GET" },
+          { "id": "B", "text": "POST" },
+          { "id": "C", "text": "DELETE" },
+          { "id": "D", "text": "PATCH" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 14,
+        "question": "Which database is a NoSQL database?",
+        "choices": [
+          { "id": "A", "text": "MySQL" },
+          { "id": "B", "text": "PostgreSQL" },
+          { "id": "C", "text": "MongoDB" },
+          { "id": "D", "text": "Oracle" }
+        ],
+        "answer": "C"
+      },
+      {
+        "id": 15,
+        "question": "Which of the following are frontend technologies?",
+        "choices": [
+          { "id": "A", "text": "React" },
+          { "id": "B", "text": "Vue" },
+          { "id": "C", "text": "Angular" },
+          { "id": "D", "text": "Express" },
+          { "id": "E", "text": "Svelte" }
+        ],
+        "answer": ["A", "B", "C", "E"]
+      },
+      {
+        "id": 16,
+        "question": "Which JavaScript framework is developed by Meta?",
+        "choices": [
+          { "id": "A", "text": "Angular" },
+          { "id": "B", "text": "React" },
+          { "id": "C", "text": "Vue" },
+          { "id": "D", "text": "Svelte" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 17,
+        "question": "What does API stand for?",
+        "choices": [
+          { "id": "A", "text": "Application Programming Interface" },
+          { "id": "B", "text": "Application Process Integration" },
+          { "id": "C", "text": "Advanced Programming Interface" },
+          { "id": "D", "text": "Application Program Internet" }
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 18,
+        "question": "Which of the following are valid CSS display values?",
+        "choices": [
+          { "id": "A", "text": "block" },
+          { "id": "B", "text": "flex" },
+          { "id": "C", "text": "grid" },
+          { "id": "D", "text": "inline" },
+          { "id": "E", "text": "database" }
+        ],
+        "answer": ["A", "B", "C", "D"]
+      },
+      {
+        "id": 19,
+        "question": "Which operator is used for strict equality in JavaScript?",
+        "choices": [
+          { "id": "A", "text": "=" },
+          { "id": "B", "text": "==" },
+          { "id": "C", "text": "===" },
+          { "id": "D", "text": "!=" }
+        ],
+        "answer": "C"
+      },
+      {
+        "id": 20,
+        "question": "Which command is used to install a package with npm?",
+        "choices": [
+          { "id": "A", "text": "npm add package" },
+          { "id": "B", "text": "npm install package" },
+          { "id": "C", "text": "npm get package" },
+          { "id": "D", "text": "npm download package" }
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 21,
+        "question": "Which of the following are popular JavaScript runtimes or environments?",
+        "choices": [
+          { "id": "A", "text": "Node.js" },
+          { "id": "B", "text": "Deno" },
+          { "id": "C", "text": "Bun" },
+          { "id": "D", "text": "MySQL" }
+        ],
+        "answer": ["A", "B", "C"]
+      },
+      {
+        "id": 22,
+        "question": "Which HTML element is used to create a numbered list?",
+        "choices": [
+          { "id": "A", "text": "<ul>" },
+          { "id": "B", "text": "<li>" },
+          { "id": "C", "text": "<ol>" },
+          { "id": "D", "text": "<list>" }
+        ],
+        "answer": "C"
+      }
+    ],
+    "createdAt": "2026-07-12",
+    "questionLength": 10
+  }
+]

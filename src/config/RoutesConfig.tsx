@@ -18,7 +18,7 @@ export const ConfigRoutes = [
     element: <GenerateQuizForm />,
   },
   {
-    path: '/quiz-form',
+    path: '/quiz-form/:id',
     element: <QuizForm />,
   },
   {

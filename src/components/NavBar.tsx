@@ -30,14 +30,13 @@ export default function NavBar() {
       </NavLink>
 
       <div className="navbar-menu">
-        <div className={`theme-toggle ${theme === 'dark' ? 'dark' : 'light'}`}>
+        <div className={`theme-toggle ${theme}`}>
           <span className="theme-slider" />
 
           <button
             type="button"
             className="theme-option"
             onClick={() => setTheme('light')}
-            aria-label="Switch to light mode"
           >
             <span className="theme-icon">☀</span>
             <span className="theme-label">Light</span>
@@ -47,7 +46,6 @@ export default function NavBar() {
             type="button"
             className="theme-option"
             onClick={() => setTheme('dark')}
-            aria-label="Switch to dark mode"
           >
             <span className="theme-icon">☾</span>
             <span className="theme-label">Dark</span>

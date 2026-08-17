@@ -1,24 +1,40 @@
+/* =========================
+   Navbar
+========================= */
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
+  max-width: 100%;
+
   padding: 1rem 2rem;
+
   background-color: var(--bg-secondary);
+  color: var(--text-primary);
 
   box-shadow: var(--shadow-light);
+
+  overflow: visible;
 }
+
+/* =========================
+   Brand
+========================= */
 
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 0.65rem;
 
+  min-width: 0;
+
   text-decoration: none;
   color: var(--text-primary);
 
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .navbar-logo {
@@ -26,6 +42,8 @@
   height: 42px;
 
   object-fit: contain;
+
+  flex-shrink: 0;
 }
 
 .navbar-title {
@@ -33,24 +51,38 @@
   font-weight: var(--font-bold);
 
   letter-spacing: -0.02em;
+
+  white-space: nowrap;
 }
+
+/* =========================
+   Navbar Menu
+========================= */
 
 .navbar-menu {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
+  flex-shrink: 0;
 }
 
 .navbar-menu a,
 .dropdown-button {
   color: var(--text-primary);
+
+  font-family: inherit;
   font-size: 1rem;
+  font-weight: var(--font-medium);
+
   text-decoration: none;
 
   background: none;
   border: none;
 
   cursor: pointer;
+
+  transition: color 0.2s ease;
 }
 
 .navbar-menu a:hover,
@@ -58,7 +90,9 @@
   color: var(--color-primary);
 }
 
-/* Dropdown */
+/* =========================
+   Dropdown
+========================= */
 
 .dropdown {
   position: relative;
@@ -68,11 +102,14 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+
+  padding: 0.5rem;
 }
 
 .arrow {
   font-size: 0.7rem;
-  transition: transform 0.2s ease;
+
+  transition: transform 0.25s ease;
 }
 
 .arrow.rotate {
@@ -85,32 +122,52 @@
   top: calc(100% + 0.5rem);
   right: 0;
 
-  min-width: 180px;
+  min-width: 200px;
 
   padding: 0.5rem;
 
   background: var(--bg-secondary);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
 
   box-shadow: var(--shadow-medium);
 
   z-index: 1000;
+
+  animation: dropdown-show 0.2s ease;
 }
 
 .dropdown-menu .dropdown-link {
   display: block;
+
+  width: 100%;
 
   padding: 0.7rem 0.8rem;
 
   border-radius: 6px;
 
   white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .dropdown-menu .dropdown-link:hover {
-  background: #f3f4f6;
+  background: var(--bg-primary);
   color: var(--color-primary);
+}
+
+@keyframes dropdown-show {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
@@ -132,12 +189,15 @@
   padding: var(--toggle-padding);
 
   background: var(--bg-secondary);
+
   border: 1px solid var(--border-color);
   border-radius: 999px;
 
   box-shadow: var(--shadow-light);
 
   isolation: isolate;
+
+  flex-shrink: 0;
 }
 
 /* Sliding background */
@@ -152,6 +212,7 @@
   height: calc(100% - 6px);
 
   background: var(--color-primary);
+
   border-radius: 999px;
 
   z-index: -1;
@@ -160,28 +221,29 @@
 
   transition:
     transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    background 0.25s ease;
+    background-color 0.25s ease;
 }
-
-/* Move slider to Dark */
 
 .theme-toggle.dark .theme-slider {
   transform: translateX(100%);
 }
 
 /* =========================
-   Buttons
+   Theme Buttons
 ========================= */
 
 .theme-option {
   position: relative;
 
   flex: 1;
+
+  width: 50%;
   height: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 0.35rem;
 
   padding: 0;
@@ -201,23 +263,21 @@
 
   transition:
     color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.2s ease;
 }
-
-/* Active button text */
 
 .theme-toggle.light .theme-option:first-of-type,
 .theme-toggle.dark .theme-option:last-of-type {
   color: #fff;
 }
 
-/* Small scale animation */
-
 .theme-option:active {
   transform: scale(0.92);
 }
 
-/* Icons */
+/* =========================
+   Theme Icons
+========================= */
 
 .theme-icon {
   font-size: 1rem;
@@ -230,4 +290,189 @@
 
 .theme-option:hover .theme-icon {
   transform: rotate(15deg) scale(1.1);
+}
+
+/* =====================================================
+   Tablet
+   769px - 1024px
+===================================================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.9rem 1.5rem;
+  }
+
+  .navbar-menu {
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    width: 135px;
+  }
+
+  .navbar-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* =====================================================
+   Small Tablet / Large Mobile
+   601px - 768px
+===================================================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-menu {
+    gap: 0.75rem;
+  }
+
+  .navbar-menu a,
+  .dropdown-button {
+    font-size: 0.9rem;
+  }
+
+  .theme-toggle {
+    width: 120px;
+    height: 36px;
+  }
+
+  .dropdown-menu {
+    min-width: 190px;
+  }
+}
+
+/* =====================================================
+   Mobile
+   <= 600px
+===================================================== */
+
+@media (max-width: 600px) {
+  .navbar {
+    min-height: 60px;
+
+    padding: 0.7rem 0.85rem;
+
+    gap: 0.5rem;
+  }
+
+  /* Brand */
+
+  .navbar-brand {
+    gap: 0.45rem;
+
+    min-width: 0;
+  }
+
+  .navbar-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navbar-title {
+    font-size: 1.1rem;
+  }
+
+  /* Menu */
+
+  .navbar-menu {
+    gap: 0.5rem;
+  }
+
+  .dropdown-button {
+    padding: 0.4rem;
+
+    font-size: 0.85rem;
+  }
+
+  .arrow {
+    font-size: 0.6rem;
+  }
+
+  /* Theme */
+
+  .theme-toggle {
+    width: 76px;
+    height: 34px;
+  }
+
+  .theme-option {
+    gap: 0;
+  }
+
+  .theme-label {
+    display: none;
+  }
+
+  .theme-icon {
+    font-size: 0.95rem;
+  }
+
+  /* Dropdown */
+
+  .dropdown-menu {
+    top: calc(100% + 0.5rem);
+    right: 0;
+
+    min-width: 200px;
+
+    max-width: calc(100vw - 1.5rem);
+  }
+}
+
+/* =====================================================
+   Very Small Mobile
+   <= 400px
+===================================================== */
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .navbar-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar-title {
+    font-size: 1rem;
+  }
+
+  .navbar-menu {
+    gap: 0.25rem;
+  }
+
+  .dropdown-button {
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle {
+    width: 68px;
+    height: 32px;
+  }
+
+  .theme-icon {
+    font-size: 0.85rem;
+  }
+}
+
+/* =====================================================
+   Prevent horizontal overflow
+===================================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: hidden;
 }

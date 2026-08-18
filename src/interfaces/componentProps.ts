@@ -30,10 +30,13 @@ export interface QuizAnswer {
 }
 
 export interface QuizQuestion {
+  id?: number;
   question: string;
   answers: QuizAnswer[];
 }
 
 export interface CreateQuizQuestionProps {
   onSubmit?: (question: QuizQuestion) => void;
+  initialQuestion?: QuizQuestion | null;
+  onCancel?: () => void;
 }

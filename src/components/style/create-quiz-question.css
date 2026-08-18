@@ -551,6 +551,64 @@
 }
 
 /* ========================================
+   Question Close Button
+======================================== */
+
+.question-close-btn {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: var(--font-regular);
+  line-height: 1;
+
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.question-close-btn:hover {
+  border-color: color-mix(in srgb, var(--text-danger) 30%, var(--border-color));
+
+  color: var(--text-danger);
+
+  background: color-mix(in srgb, var(--text-danger) 8%, var(--bg-primary));
+
+  transform: scale(1.05);
+}
+
+.question-close-btn:active {
+  transform: scale(0.92);
+}
+
+.question-close-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--text-danger) 25%, transparent);
+
+  outline-offset: 2px;
+}
+
+/* ========================================
    Tablet
 ======================================== */
 

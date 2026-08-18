@@ -1,14 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import type {
   QuizQuestion,
   QuizAnswer,
   CreateQuizQuestionProps,
 } from '../interfaces/componentProps';
+
 import './style/create-quiz-question.css';
 
-const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
+const CreateQuizQuestion = ({
+  onSubmit,
+  initialQuestion,
+  onCancel,
+}: CreateQuizQuestionProps) => {
   const [question, setQuestion] = useState('');
+
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
+
+  /* ========================================
+     Edit Existing Question
+  ======================================== */
+
+  useEffect(() => {
+    if (initialQuestion) {
+      setQuestion(initialQuestion.question);
+
+      setAnswers(
+        initialQuestion.answers.map((answer) => ({
+          ...answer,
+        })),
+      );
+    } else {
+      setQuestion('');
+      setAnswers([]);
+    }
+  }, [initialQuestion]);
+
+  /* ========================================
+     Add Answer
+  ======================================== */
 
   const handleAddAnswer = () => {
     setAnswers((prev) => [
@@ -21,9 +51,17 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
     ]);
   };
 
+  /* ========================================
+     Remove Answer
+  ======================================== */
+
   const handleRemoveAnswer = (id: number) => {
     setAnswers((prev) => prev.filter((answer) => answer.id !== id));
   };
+
+  /* ========================================
+     Update Answer
+  ======================================== */
 
   const handleAnswerChange = (id: number, value: string) => {
     setAnswers((prev) =>
@@ -38,6 +76,10 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
     );
   };
 
+  /* ========================================
+     Toggle Answer Key
+  ======================================== */
+
   const handleToggleCorrect = (id: number) => {
     setAnswers((prev) =>
       prev.map((answer) =>
@@ -51,54 +93,104 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
     );
   };
 
+  /* ========================================
+     Submit
+  ======================================== */
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    /* Question validation */
+
     if (!question.trim()) {
       alert('Please enter a question.');
+
       return;
     }
 
+    /* Answer count validation */
+
     if (answers.length < 2) {
       alert('Please add at least 2 answers.');
+
       return;
     }
+
+    /* Empty answer validation */
 
     const hasEmptyAnswer = answers.some((answer) => !answer.text.trim());
 
     if (hasEmptyAnswer) {
       alert('Please fill in all answers.');
+
       return;
     }
+
+    /* Correct answer validation */
 
     const hasCorrectAnswer = answers.some((answer) => answer.isCorrect);
 
     if (!hasCorrectAnswer) {
       alert('Please select at least one correct answer.');
+
       return;
     }
 
+    /* Create question */
+
     const newQuestion: QuizQuestion = {
+      ...(initialQuestion?.id !== undefined ? { id: initialQuestion.id } : {}),
+
       question: question.trim(),
-      answers,
+
+      answers: answers.map((answer) => ({
+        ...answer,
+        text: answer.text.trim(),
+      })),
     };
 
     onSubmit?.(newQuestion);
   };
 
+  const isEditing = initialQuestion !== null && initialQuestion !== undefined;
+
+  const correctAnswerCount = answers.filter(
+    (answer) => answer.isCorrect,
+  ).length;
+
   return (
     <form className="create-quiz-question" onSubmit={handleSubmit}>
-      {/* Header */}
+      {/* ========================================
+          Header
+      ======================================== */}
 
       <div className="question-header">
         <div>
-          <span className="question-label">Question</span>
+          <span className="question-label">
+            {isEditing ? 'Edit Question' : 'New Question'}
+          </span>
 
-          <h2>Create Quiz Question</h2>
+          <h2 id="question-modal-title">
+            {isEditing ? 'Edit Quiz Question' : 'Create Quiz Question'}
+          </h2>
         </div>
+
+        {onCancel && (
+          <button
+            type="button"
+            className="question-close-btn"
+            onClick={onCancel}
+            aria-label="Close"
+            title="Close"
+          >
+            ×
+          </button>
+        )}
       </div>
 
-      {/* Question */}
+      {/* ========================================
+          Question
+      ======================================== */}
 
       <div className="form-group">
         <label htmlFor="question">Question</label>
@@ -113,7 +205,9 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
         />
       </div>
 
-      {/* Answers */}
+      {/* ========================================
+          Answers
+      ======================================== */}
 
       <div className="answers-section">
         <div className="answers-header">
@@ -121,8 +215,8 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
             <h3>Answers</h3>
 
             <p>
-              Click A, B, C, or D to mark the correct answer. You can select
-              multiple answers.
+              Click A, B, C, or D to mark an answer as correct. Multiple answers
+              are supported.
             </p>
           </div>
 
@@ -131,11 +225,12 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
             className="add-answer-btn"
             onClick={handleAddAnswer}
           >
-            + Add Answer
+            <span>+</span>
+            Add Answer
           </button>
         </div>
 
-        {/* Empty state */}
+        {/* Empty */}
 
         {answers.length === 0 && (
           <div className="answers-empty">
@@ -143,11 +238,11 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
 
             <p>No answers added yet.</p>
 
-            <span>Click "Add Answer" to create your first answer.</span>
+            <span>Click "Add Answer" to create an answer.</span>
           </div>
         )}
 
-        {/* Answer list */}
+        {/* Answer List */}
 
         {answers.length > 0 && (
           <div className="answers-list">
@@ -183,7 +278,7 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
                     {answerLetter}
                   </button>
 
-                  {/* Answer */}
+                  {/* Answer Input */}
 
                   <input
                     type="text"
@@ -213,16 +308,18 @@ const CreateQuizQuestion = ({ onSubmit }: CreateQuizQuestionProps) => {
         )}
       </div>
 
-      {/* Footer */}
+      {/* ========================================
+          Footer
+      ======================================== */}
 
       <div className="question-footer">
         <span className="correct-count">
-          {answers.filter((answer) => answer.isCorrect).length} correct answer
-          {answers.filter((answer) => answer.isCorrect).length !== 1 ? 's' : ''}
+          {correctAnswerCount} correct answer
+          {correctAnswerCount !== 1 ? 's' : ''}
         </span>
 
         <button type="submit" className="create-question-btn">
-          Create Question
+          {isEditing ? 'Update Question' : 'Create Question'}
         </button>
       </div>
     </form>

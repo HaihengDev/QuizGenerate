@@ -1,11 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import quizFiles from '../data/quizFile.json';
 import QuizCard from './QuizCard';
 import './style/quiz-card.css';
 
+const RESULT_STORAGE_KEY = 'quiz_last_result';
+
+const normalizeAnswer = (answer: string | string[]) => [...answer].sort().join('|');
+
 export default function QuizCardLayout() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const questions = quizFiles.find(
     (quizFile) => quizFile.id === Number(id),
@@ -50,8 +55,29 @@ export default function QuizCardLayout() {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((previous) => previous + 1);
     } else {
-      // Submit quiz
-      console.log('User answers:', userAnswers);
+      const totalQuestions = questions.length;
+      const correctCount = questions.reduce((count, question) => {
+        const correctAnswers = Array.isArray(question.answer)
+          ? question.answer
+          : [question.answer];
+        const userAnswer = userAnswers[question.id] ?? [];
+
+        return normalizeAnswer(userAnswer) === normalizeAnswer(correctAnswers)
+          ? count + 1
+          : count;
+      }, 0);
+
+      const result = {
+        quizId: Number(id),
+        totalQuestions,
+        correctCount,
+        incorrectCount: totalQuestions - correctCount,
+        answeredCount: Object.keys(userAnswers).length,
+        createdAt: new Date().toISOString(),
+      };
+
+      localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(result));
+      navigate('/result', { state: result });
     }
   };
 

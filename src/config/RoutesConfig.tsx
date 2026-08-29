@@ -23,6 +23,10 @@ export const ConfigRoutes = [
     element: <CreateQuiz />,
   },
   {
+    path: '/create-quiz/:fileId',
+    element: <CreateQuiz />,
+  },
+  {
     path: '/quiz-form/:id',
     element: <QuizForm />,
   },

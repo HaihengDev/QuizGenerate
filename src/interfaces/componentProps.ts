@@ -23,6 +23,14 @@ export interface QuizFileCardProps {
   questionLength: number;
 }
 
+export interface QuizFileRecord {
+  id: number;
+  title: string;
+  createdAt: string;
+  quiz: QuizQuestion[];
+  questionLength: number;
+}
+
 export interface QuizAnswer {
   id: number;
   text: string;

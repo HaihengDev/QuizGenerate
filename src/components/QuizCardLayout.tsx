@@ -15,6 +15,7 @@ export default function QuizCardLayout() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const randomOrder = searchParams.get('order') === 'random';
+  const singleQuestionId = Number(searchParams.get('question')) || null;
 
   const questions = useMemo(() => {
     const fileId = Number(id);
@@ -26,7 +27,9 @@ export default function QuizCardLayout() {
       return [];
     }
 
-    const orderedQuestions = [...selectedFile.quiz];
+    const orderedQuestions = selectedFile.quiz.filter((question, index) =>
+      singleQuestionId === null || (question.id ?? index + 1) === singleQuestionId,
+    );
     if (randomOrder) {
       for (let index = orderedQuestions.length - 1; index > 0; index--) {
         const swapIndex = Math.floor(Math.random() * (index + 1));
@@ -57,7 +60,7 @@ export default function QuizCardLayout() {
             : (correctAnswerIds[0] ?? ''),
       };
     });
-  }, [id, randomOrder]);
+  }, [id, randomOrder, singleQuestionId]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<number, string[]>>({});

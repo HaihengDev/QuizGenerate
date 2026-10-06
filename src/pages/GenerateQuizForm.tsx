@@ -58,7 +58,7 @@ const Page = () => {
       questionLength: questions.length,
     };
     saveUserQuizFiles([...getUserQuizFiles(), quiz]);
-    navigate(`/quiz-form/${id}?order=${practiceOrder}`);
+    navigate(`/question-cards?file=${id}&order=${practiceOrder}`);
   };
 
   return (

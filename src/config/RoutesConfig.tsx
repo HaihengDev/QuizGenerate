@@ -4,6 +4,7 @@ import QuizForm from '../pages/QuizForm';
 import CreateQuiz from '../pages/CreateQuizPage';
 import ResultPage from '../pages/ResultPage';
 import Error from '../pages/Error';
+import QuestionCardsPage from '../pages/QuestionCardsPage';
 
 export const ConfigRoutes = [
   {
@@ -17,6 +18,10 @@ export const ConfigRoutes = [
   {
     path: '/generate-quiz-form',
     element: <GenerateQuizForm />,
+  },
+  {
+    path: '/question-cards',
+    element: <QuestionCardsPage />,
   },
   {
     path: '/create-quiz',

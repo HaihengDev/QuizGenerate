@@ -1,0 +1,60 @@
+.question-cards-page {
+  width: min(1100px, 100%);
+  min-height: calc(100vh - 80px);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+  color: var(--text-primary);
+}
+
+.question-cards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.question-cards-eyebrow { margin: 0 0 0.4rem; color: var(--color-primary); font-weight: var(--font-semibold); }
+.question-cards-header h1 { margin: 0; font-size: var(--text-xl); }
+.question-cards-header p { margin: 0.6rem 0 0; opacity: 0.7; }
+.question-cards-header label { display: grid; gap: 0.4rem; font-size: var(--text-sm); }
+.question-cards-header select { min-width: 220px; padding: 0.65rem; border: 1px solid #d1d5db; border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); }
+
+.question-deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 1rem; }
+.question-deck-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px; background: var(--bg-secondary); box-shadow: var(--shadow-light); }
+.question-deck-card h2 { margin: 0; font-size: var(--text-md); }
+.question-deck-card p { margin: 0.45rem 0 0; opacity: 0.7; }
+
+.flashcard-deck { width: min(760px, 100%); margin: 0 auto; }
+.flashcard-deck-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.flashcard-deck-heading h2 { margin: 0; font-size: var(--text-lg); }
+.flashcard-deck-heading p { margin: 0.4rem 0 0; opacity: 0.65; }
+.flashcard-counter { flex-shrink: 0; padding: 0.45rem 0.75rem; border-radius: 99px; background: var(--bg-secondary); color: var(--color-primary); font-weight: var(--font-semibold); }
+
+.flashcard { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 340px; padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 20px; background: var(--bg-secondary); box-shadow: var(--shadow-medium); text-align: center; }
+.flashcard.answer-visible { border-color: var(--color-primary); }
+.flashcard-side-label { margin: 0 0 1rem; color: var(--color-primary); font-size: var(--text-sm); font-weight: var(--font-semibold); text-transform: uppercase; letter-spacing: 0.08em; }
+.flashcard h3 { max-width: 650px; margin: 0 auto 2rem; font-size: clamp(1.2rem, 3vw, 1.65rem); line-height: 1.6; }
+.flashcard-answer-list { display: grid; gap: 0.75rem; margin-bottom: 2rem; }
+.flashcard-answer-list p { margin: 0; font-size: clamp(1.2rem, 3vw, 1.65rem); font-weight: var(--font-semibold); line-height: 1.6; }
+
+.flashcard-reveal,
+.question-deck-card button,
+.flashcard-controls button { padding: 0.7rem 1.2rem; border: 0; border-radius: 9px; background: var(--color-primary); color: white; font: inherit; font-weight: var(--font-medium); cursor: pointer; }
+.flashcard-reveal:hover,
+.question-deck-card button:hover,
+.flashcard-controls button:hover:not(:disabled) { background: var(--color-hover); }
+.flashcard-controls { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
+.flashcard-controls button:disabled { opacity: 0.45; cursor: not-allowed; }
+.flashcard-controls button:first-child { border: 2px solid var(--color-primary); background: transparent; color: var(--color-primary); }
+.flashcard-controls button:first-child:hover:not(:disabled) { background: var(--color-primary); color: white; }
+.flashcard-all-decks { display: block; margin: 1.5rem auto 0; padding: 0.5rem; border: 0; background: none; color: var(--color-primary); font: inherit; cursor: pointer; }
+.question-cards-empty { padding: 2rem; border: 1px dashed #9ca3af; border-radius: 12px; text-align: center; }
+
+@media (max-width: 650px) {
+  .question-cards-page { padding: 2rem 1rem; }
+  .question-cards-header { align-items: stretch; flex-direction: column; }
+  .question-cards-header select { width: 100%; }
+  .flashcard { min-height: 300px; }
+}

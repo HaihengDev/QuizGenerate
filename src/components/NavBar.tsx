@@ -72,6 +72,10 @@ export default function NavBar() {
                 Upload Pdf to Quiz
               </NavLink>
 
+              <NavLink to="/question-cards" className="dropdown-link">
+                All Question Cards
+              </NavLink>
+
               <NavLink to="/create-quiz" className="dropdown-link">
                 Create Quiz Manually
               </NavLink>

@@ -21,6 +21,8 @@ export interface QuizFileCardProps {
   title: string;
   createdAt: String;
   questionLength: number;
+  canDelete?: boolean;
+  onDelete?: (id: number) => void;
 }
 
 export interface QuizFileRecord {

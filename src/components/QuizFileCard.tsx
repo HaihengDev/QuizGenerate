@@ -8,6 +8,8 @@ export default function QuizFileCard({
   title,
   createdAt,
   questionLength,
+  canDelete = false,
+  onDelete,
 }: QuizFileCardProps) {
   const navigate = useNavigate();
 
@@ -19,6 +21,19 @@ export default function QuizFileCard({
       <h3>{title}</h3>
       <p>created at: {dateFormatHelper(createdAt)}</p>
       <p>Questions: {questionLength}</p>
+      {canDelete && (
+        <button
+          type="button"
+          className="quiz-file-delete"
+          aria-label={`Delete ${title}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            onDelete?.(id);
+          }}
+        >
+          Delete
+        </button>
+      )}
     </figure>
   );
 }

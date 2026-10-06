@@ -152,3 +152,11 @@ export const updateQuizFile = (
 
   return nextFile;
 };
+
+export const deleteUserQuizFile = (fileId: number): boolean => {
+  const userFiles = getUserQuizFiles();
+  const nextFiles = userFiles.filter((file) => file.id !== fileId);
+  if (nextFiles.length === userFiles.length) return false;
+  saveUserQuizFiles(nextFiles);
+  return true;
+};

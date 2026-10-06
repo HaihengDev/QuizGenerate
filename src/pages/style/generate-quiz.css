@@ -132,6 +132,30 @@
   transform: none;
 }
 
+.generate-quiz-feedback,
+.generate-quiz-error {
+  margin: 1rem 0 0;
+  color: var(--text-primary);
+}
+
+.generate-quiz-error { color: var(--text-danger); }
+
+.generated-quiz-review {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  color: var(--text-primary);
+}
+
+.generated-quiz-review h2 { margin: 0 0 0.5rem; }
+.generated-quiz-review > p { opacity: 0.7; }
+.generated-quiz-review label { display: block; margin: 1rem 0 0.4rem; }
+.generated-quiz-review select { padding: 0.6rem; border-radius: 8px; }
+.generated-quiz-review ol { padding-left: 1.5rem; }
+.generated-quiz-review ol > li { margin: 1rem 0; }
+.generated-quiz-review li ul { margin-top: 0.5rem; }
+.generated-quiz-review > .generate-quiz-button { margin-top: 1rem; }
+
 /* Responsive */
 @media (max-width: 600px) {
   #generate-quiz-form-container {

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 
 import { getAllQuizFiles } from '../utils/quizStorage';
@@ -13,6 +13,8 @@ const normalizeAnswer = (answer: string | string[]) =>
 export default function QuizCardLayout() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const randomOrder = searchParams.get('order') === 'random';
 
   const questions = useMemo(() => {
     const fileId = Number(id);
@@ -24,7 +26,14 @@ export default function QuizCardLayout() {
       return [];
     }
 
-    return selectedFile.quiz.map((question, index) => {
+    const orderedQuestions = [...selectedFile.quiz];
+    if (randomOrder) {
+      for (let index = orderedQuestions.length - 1; index > 0; index--) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [orderedQuestions[index], orderedQuestions[swapIndex]] = [orderedQuestions[swapIndex], orderedQuestions[index]];
+      }
+    }
+    return orderedQuestions.map((question, index) => {
       const answerOrder = question.answers.map((answer, answerIndex) => ({
         id: String.fromCharCode(65 + answerIndex),
         text: answer.text,
@@ -48,7 +57,7 @@ export default function QuizCardLayout() {
             : (correctAnswerIds[0] ?? ''),
       };
     });
-  }, [id]);
+  }, [id, randomOrder]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<number, string[]>>({});
@@ -125,6 +134,7 @@ export default function QuizCardLayout() {
 
   return (
     <section id='quiz-card-layout'>
+      <p className='quiz-order-label'>{randomOrder ? 'Shuffled practice' : 'Document order'}</p>
       <QuizCard
         id={currentQuestion.id}
         question={currentQuestion.question}
